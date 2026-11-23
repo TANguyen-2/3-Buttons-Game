@@ -122,30 +122,30 @@
     */
     .game-slot
     {
-        position:relative;
+        position: relative;
         cursor: pointer;
         overflow: hidden;
-
         height: 100%;
         aspect-ratio: var(--game-slot-aspect-ratio);
-
         /* Placeholder background. */
-        background-color: goldenrod;
+        background-color: #1f1f1f;
     }
 
     /* The div containing the game-slot divs. */
     #slot-container
     {
         display: flex;
-
         width: 100%;
         height: 67%; /* Six-seven... */
+
+        border-width: 1px;
+        border: solid;
+        border-color: #e6e6e6;
 
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
-
-        background-color: goldenrod;
+        background-color: #1f1f1f;
     }
 
     /* The div showing which button must be pressed, the score, and the remaining amount of time. */
@@ -161,8 +161,12 @@
         
         filter: var(--game-darkness-filter);
 
+        border: solid;
+        border-width: 1px;
+        border-color: #cccccc;
+
         /* Placeholder background. */
-        background-color: aquamarine;
+        background-color: #1f1f1f;
     }
 
     /* The div containing the game items, maintaining an appropriate aspect ratio. */
@@ -215,7 +219,7 @@
 
 
         /* Placeholder background. */
-        background-color: rgba(255, 228, 91, 1);
+        background-color: #1a1a1a;
     }
 }
 
@@ -233,7 +237,7 @@
         aspect-ratio: var(--game-slot-aspect-ratio);
 
         /* Placeholder background. */
-        background-color: goldenrod;
+        background-color: #1f1f1f;
     }
 
     /* The div containing the game-slot divs. */
@@ -247,7 +251,7 @@
         justify-content: space-evenly;
         align-items: center;
         
-        background-color: goldenrod;
+        background-color: #1f1f1f;
     }
 
     /* The div showing which button must be pressed, the score, and the remaining amount of time. */
@@ -263,8 +267,12 @@
         
         filter: var(--game-darkness-filter);
         
+        border: solid;
+        border-width: 1px;
+        border-color: #cccccc;
+
         /* Placeholder background. */
-        background-color: aquamarine;
+        background-color: #1f1f1f;
     }
 
     /* The div containing the game items, maintaining an appropriate aspect ratio. */
@@ -314,9 +322,9 @@
                                 brightness(calc(100% - 60% * var(--game-darkness)));
 
 
-
+        
         /* Placeholder background. */
-        background-color: rgba(255, 228, 91, 1);
+        background-color: #1a1a1a;
     }
 }
 
@@ -337,11 +345,7 @@ body
     /* Prevent auto-scrolling */
     overscroll-behavior-y: none;
 
-    background-color: rgba(255, 228, 91, 1);
-    /* The leftmost background is rendered on top. */
-    background-image: var(--game-background), url("Sprites/penguin_title_icon.png"); /* mwehehe */
-    
-    background-repeat: no-repeat, no-repeat;
+    background-color: #1a1a1a;
 
     /* Position the background different depending on whether the game is in horizontal or vertical layout. */
     @media (orientation: landscape) and (min-width: 800px)
@@ -384,6 +388,7 @@ body
         font-weight: bold;
         text-align: center;
         filter: var(--game-darkness-filter);
+        color: #e6e6e6;
     }
 
 
@@ -393,7 +398,10 @@ body
         width: min(33vw, var(--game-bound-max-width) * 0.33);
         aspect-ratio: calc(var(--game-bound-aspect-ratio) * 3);
         filter: var(--game-darkness-filter);
-        background-color: silver;
+        background-color: #1f1f1f;
+        border-width: 1px;
+        border-color: #e6e6e6;
+        border-style: solid;
         /* This must be explicitly set on the html file for certain display bar animation. */
         --norm-fill: 1.0;
         --damage-flash: 0.0;
@@ -407,13 +415,13 @@ body
         width: calc(var(--norm-fill) * 98%);
         
         /*
-            Linearly interpolate from rgb(12, 249, 0) at norm-fill=1 to rgb(229, 103, 91) at norm-fill=0.
+            Linearly interpolate from rgb(230, 230, 230) at norm-fill=1 to rgb(230, 92, 92) at norm-fill=0.
             Damage flash may increase this amount.
         */
         background-color: rgb(
-            calc(229 + (12 - 229) * clamp(0, calc(var(--norm-fill) - var(--damage-flash)), 1)),
-            calc(103 + (249 - 103) * clamp(0, calc(var(--norm-fill) - var(--damage-flash)), 1)),
-            calc(91 + (0 - 91) * clamp(0, calc(var(--norm-fill) - var(--damage-flash)), 1))
+            calc(230 + (230 - 230) * clamp(0, calc(var(--norm-fill) - var(--damage-flash)), 1)),
+            calc(92 + (230 - 92) * clamp(0, calc(var(--norm-fill) - var(--damage-flash)), 1)),
+            calc(92 + (230 - 92) * clamp(0, calc(var(--norm-fill) - var(--damage-flash)), 1))
         );
     }
 
@@ -445,6 +453,7 @@ body
         align-items: center;
         font-size: min(4vw, var(--game-bound-max-width) * 0.04);
         font-weight: bold;
+        color: #e6e6e6;
     }
 
     #target-icon
@@ -466,6 +475,7 @@ body
         font-weight: bold;
         text-align: center;
         filter: var(--game-darkness-filter);
+        color: #e6e6e6;
     }
 
 
@@ -477,7 +487,10 @@ body
         width: min(20vw, var(--game-bound-max-width) * 0.20);
         aspect-ratio: calc(var(--game-bound-aspect-ratio));
         filter: var(--game-darkness-filter);
-        background-color: silver;
+        background-color: #1f1f1f;
+        border-width: 1px;
+        border-color: #e6e6e6;
+        border-style: solid;
         /* This must be explicitly set on the html file for certain display bar animation. */
         --norm-fill: 1.0;
         --damage-flash: 0.0;
@@ -492,13 +505,13 @@ body
         height: calc(var(--norm-fill) * 96%);
 
         /*
-            Linearly interpolate from rgb(12, 249, 0) at norm-fill=1 to rgb(229, 103, 91) at norm-fill=0.
+            Linearly interpolate from rgb(230, 230, 230) at norm-fill=1 to rgb(230, 92, 92) at norm-fill=0.
             Damage flash may increase this amount.
         */
         background-color: rgb(
-            calc(229 + (12 - 229) * clamp(0, calc(var(--norm-fill) - var(--damage-flash)), 1)),
-            calc(103 + (249 - 103) * clamp(0, calc(var(--norm-fill) - var(--damage-flash)), 1)),
-            calc(91 + (0 - 91) * clamp(0, calc(var(--norm-fill) - var(--damage-flash)), 1))
+            calc(230 + (230 - 230) * clamp(0, calc(var(--norm-fill) - var(--damage-flash)), 1)),
+            calc(92 + (230 - 92) * clamp(0, calc(var(--norm-fill) - var(--damage-flash)), 1)),
+            calc(92 + (230 - 92) * clamp(0, calc(var(--norm-fill) - var(--damage-flash)), 1))
         );
     }
 
@@ -528,6 +541,7 @@ body
         align-items: center;
         font-size: min(6vw, var(--game-bound-max-width) * 0.06);
         font-weight: bold;
+        color: #e6e6e6;
     }
 
     #target-icon
@@ -570,7 +584,7 @@ body
 {
     position: fixed;
 
-    color: red;
+    color: #e65c5c;
     font-size: min(4vw, 10vh);
     font-weight: bold;
     pointer-events: none;
@@ -613,7 +627,7 @@ body
 #reward-screen
 {
     visibility: hidden;
-    border: min(0.5vh, 0.5vw) solid darkgoldenrod;
+    border: min(0.5vh, 0.5vw) solid #e6e6e6;
 
     position: fixed;
     display: flex;
@@ -623,7 +637,7 @@ body
     bottom: 10vh;
     left: 10vw;
     padding: min(1vh, 1vw);
-    background-color: goldenrod;
+    background-color: #1f1f1f;
     align-items: center;
     justify-items: start;
 }
@@ -631,9 +645,21 @@ body
 #reward-title
 {
     font-size: 5vw;
+    color: #e6e6e6;
+}
+
+
+#restart-button
+{
+    font-size: min(6vw, 60vh * 0.25);
+    color: #e6e6e6;
+    border: solid;
+    border-width: 1px;
+    border-color: #cccccc;
+    background-color: #1f1f1f;
 }
 
 #reward-image
 {
-    height: min(75vw, 60vh * 0.75);
+    height: min(80vw, 60vh * 0.5);
 }

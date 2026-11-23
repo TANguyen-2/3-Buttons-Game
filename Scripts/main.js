@@ -378,6 +378,19 @@ class GameController extends ProcessTreeNode
 }
 
 
+function restartGame()
+{
+}
+
+
+function restartGame()
+{
+    stopPerFrameProcessLoop();
+    document.getElementById("reward-screen").style.visibility = "hidden";
+    setDarkness(document.getElementById("game-bound"), 0);
+    beginGame();
+}
+
 
 // Start Game.
 function beginGame()
@@ -392,10 +405,12 @@ function beginGame()
     
     // Set the gameController to be the root of the process tree (since it has no siblings).
     processTreeRoot = gameController;
-
+    
     // Begin processing the process tree.
     startPerFrameProcessLoop();
 }
+
+document.getElementById("restart-button").onclick = restartGame;
 
 window.addEventListener('load', () =>
 {
